@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | DMEN'STYLE</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/register.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">
+        <div class="content">
+          <h1>DMEN'STYLE</h1>
+
+          <p>
+            Bergabunglah sekarang dan nikmati pengalaman belanja fashion pria
+            terbaik.
+          </p>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="register-box">
+          <h2>Buat Akun</h2>
+
+          <p>Silakan isi data di bawah ini.</p>
+
+          <form id="registerForm">
+            <div class="input-box">
+              <i class="fa-solid fa-user"></i>
+              <input
+                type="text"
+                id="nama"
+                placeholder="Nama Lengkap"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="email" placeholder="Email" required />
+            </div>
+
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <div class="input-box">
+              <i class="fa-solid fa-lock"></i>
+              <input
+                type="password"
+                id="konfirmasi"
+                placeholder="Konfirmasi Password"
+                required
+              />
+            </div>
+
+            <button type="submit">Daftar</button>
+          </form>
+
+          <div class="login-link">
+            Sudah punya akun?
+            <a href="login.html">Login</a>
+          </div>
+
+          <div class="back">
+            <a href="index.html">← Kembali ke Beranda</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/register.js"></script>
+  </body>
+</html>

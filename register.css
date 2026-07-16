@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("../images/login-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  width: 1000px;
+  max-width: 95%;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.left {
+  flex: 1;
+  background: linear-gradient(135deg, #111, #444);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.left h1 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.left p {
+  line-height: 28px;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.register-box {
+  width: 360px;
+}
+
+.register-box h2 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.register-box p {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box i {
+  position: absolute;
+  top: 17px;
+  left: 15px;
+  color: #777;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-box input:focus {
+  border-color: #111;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #c59d5f;
+}
+
+.login-link,
+.back {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.login-link a,
+.back a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 600;
+}
+
+.login-link a:hover,
+.back a:hover {
+  color: #c59d5f;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
+  }
+
+  .register-box {
+    width: 100%;
+  }
+}

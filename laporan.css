@@ -1,0 +1,388 @@
+/* =====================================================
+   DMEN'STYLE STORE - ADMIN LAPORAN
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  display: flex;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar {
+  width: 260px;
+  background: #111827;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.logo {
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 20px 0;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 25px;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sidebar ul li a i {
+  width: 22px;
+  text-align: center;
+}
+
+.sidebar ul li a:hover {
+  background: #1f2937;
+  color: #fbbf24;
+}
+
+.sidebar ul li.active a {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+  padding: 30px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+header h2 {
+  font-size: 28px;
+}
+
+header #btnExport {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+header #btnExport:hover {
+  background: #1d4ed8;
+}
+
+.btn-back {
+  background: #fff;
+  color: #2563eb;
+  border: 1.5px solid #2563eb;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s;
+}
+
+.btn-back:hover {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* =====================================================
+   TOOLBAR / FILTER PERIODE
+===================================================== */
+
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group label {
+  font-size: 12.5px;
+  color: #666;
+  font-weight: 500;
+}
+
+.toolbar input,
+.toolbar select {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.toolbar select {
+  align-self: flex-end;
+}
+
+#btnTerapkan {
+  background: #111827;
+  color: #fff;
+  border: none;
+  padding: 11px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+#btnTerapkan:hover {
+  background: #1f2937;
+}
+
+/* =====================================================
+   STAT CARDS
+===================================================== */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card i {
+  font-size: 34px;
+  color: #2563eb;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+}
+
+/* =====================================================
+   GRAFIK
+===================================================== */
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.chart-box {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+}
+
+.chart-header {
+  margin-bottom: 15px;
+}
+
+.chart-header h3 {
+  font-size: 16px;
+  color: #222;
+}
+
+.chart-box canvas {
+  max-height: 280px;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-area {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.table-header {
+  margin-bottom: 18px;
+}
+
+.table-header h2 {
+  font-size: 20px;
+  color: #222;
+}
+
+table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #2563eb;
+  color: #fff;
+}
+
+thead th {
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #eee;
+  transition: 0.3s;
+}
+
+tbody tr:hover {
+  background: #f8fafc;
+}
+
+tbody td {
+  padding: 14px 15px;
+  font-size: 14px;
+}
+
+tbody img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 20px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 992px) {
+  .sidebar {
+    width: 220px;
+  }
+
+  .main {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .main {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar select {
+    align-self: stretch;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}

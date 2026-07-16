@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Promo</title>
+    <link rel="stylesheet" href="promo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+      <div class="logo">DMEN'STYLE</div>
+
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li>
+          <a href="produk.html">
+            <i class="fa-solid fa-shirt"></i>
+            Produk
+          </a>
+        </li>
+
+        <li>
+          <a href="kategori.html">
+            <i class="fa-solid fa-layer-group"></i>
+            Kategori
+          </a>
+        </li>
+
+        <li>
+          <a href="pesanan.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Pesanan
+          </a>
+        </li>
+
+        <li>
+          <a href="customer.html">
+            <i class="fa-solid fa-users"></i>
+            Customer
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="promo.html">
+            <i class="fa-solid fa-tags"></i>
+            Promo
+          </a>
+        </li>
+
+        <li>
+          <a href="laporan.html">
+            <i class="fa-solid fa-chart-column"></i>
+            Laporan
+          </a>
+        </li>
+
+        <li>
+          <a href="../login.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+      <header>
+        <div style="display: flex; align-items: center; gap: 15px">
+          <button type="button" class="btn-back" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+          </button>
+          <h2>Kelola Promo</h2>
+        </div>
+
+        <button id="btnTambah">
+          <i class="fa-solid fa-plus"></i>
+          Tambah Promo
+        </button>
+      </header>
+
+      <!-- Statistik -->
+      <section class="cards">
+        <div class="card">
+          <i class="fa-solid fa-tags"></i>
+          <h3 id="statTotal">0</h3>
+          <p>Total Promo</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-circle-check"></i>
+          <h3 id="statAktif">0</h3>
+          <p>Promo Aktif</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-hourglass-half"></i>
+          <h3 id="statSegera">0</h3>
+          <p>Akan Datang</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-circle-xmark"></i>
+          <h3 id="statBerakhir">0</h3>
+          <p>Berakhir</p>
+        </div>
+      </section>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <input
+          type="text"
+          id="search"
+          placeholder="Cari nama promo atau kode voucher..."
+        />
+        <select id="filterStatus">
+          <option value="Semua">Semua Status</option>
+          <option value="Aktif">Aktif</option>
+          <option value="Akan Datang">Akan Datang</option>
+          <option value="Berakhir">Berakhir</option>
+        </select>
+      </div>
+
+      <!-- ================= TABLE ================= -->
+
+      <div class="table-area">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama Promo</th>
+              <th>Kode Voucher</th>
+              <th>Diskon</th>
+              <th>Periode</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tablePromo"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================= MODAL TAMBAH / EDIT PROMO ================= -->
+
+    <div class="modal" id="modalPromo">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="judulModal">Tambah Promo</h2>
+          <span id="closeModal">&times;</span>
+        </div>
+
+        <form id="formPromo">
+          <input type="hidden" id="idPromo" />
+
+          <div class="form-group">
+            <label>Nama Promo</label>
+            <input
+              type="text"
+              id="nama"
+              placeholder="Contoh: Diskon Akhir Tahun"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Kode Voucher</label>
+            <input
+              type="text"
+              id="kode"
+              placeholder="Contoh: AKHIRTAHUN25"
+              style="text-transform: uppercase"
+              required
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Jenis Diskon</label>
+              <select id="jenisDiskon">
+                <option value="persen">Persentase (%)</option>
+                <option value="nominal">Nominal (Rp)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Nilai Diskon</label>
+              <input type="number" id="nilaiDiskon" min="0" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tanggal Mulai</label>
+              <input type="date" id="tanggalMulai" required />
+            </div>
+
+            <div class="form-group">
+              <label>Tanggal Berakhir</label>
+              <input type="date" id="tanggalBerakhir" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Minimal Belanja (Rp)</label>
+            <input
+              type="number"
+              id="minBelanja"
+              min="0"
+              placeholder="0 jika tidak ada minimum"
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Kategori Berlaku</label>
+            <select id="kategoriBerlaku">
+              <option value="Semua">Semua Kategori</option>
+              <option>Kaos</option>
+              <option>Kemeja</option>
+              <option>Hoodie</option>
+              <option>Jaket</option>
+              <option>Celana</option>
+              <option>Sepatu</option>
+            </select>
+          </div>
+
+          <button type="submit">Simpan Promo</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="promo.js"></script>
+  </body>
+</html>

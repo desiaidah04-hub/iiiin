@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dashboard Admin</title>
+
+    <link rel="stylesheet" href="dashboard.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+      <div class="logo">DMEN'STYLE</div>
+
+      <ul>
+        <li class="active">
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li>
+          <a href="produk.html">
+            <i class="fa-solid fa-shirt"></i>
+            Produk
+          </a>
+        </li>
+
+        <li>
+          <a href="kategori.html">
+            <i class="fa-solid fa-layer-group"></i>
+            Kategori
+          </a>
+        </li>
+
+        <li>
+          <a href="pesanan.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Pesanan
+          </a>
+        </li>
+
+        <li>
+          <a href="customer.html">
+            <i class="fa-solid fa-users"></i>
+            Customer
+          </a>
+        </li>
+
+        <li>
+          <a href="promo.html">
+            <i class="fa-solid fa-tags"></i>
+            Promo
+          </a>
+        </li>
+
+        <li>
+          <a href="laporan.html">
+            <i class="fa-solid fa-chart-column"></i>
+            Laporan
+          </a>
+        </li>
+
+        <li>
+          <a href="../login.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+      <!-- Header -->
+
+      <header>
+        <div style="display: flex; align-items: center; gap: 15px">
+          <button type="button" class="btn-back" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+          </button>
+          <h2>Dashboard Admin</h2>
+        </div>
+
+        <div class="admin">
+          <img src="../images/admin.jpg" />
+
+          <span>Administrator</span>
+        </div>
+      </header>
+
+      <!-- Cards -->
+
+      <section class="cards">
+        <div class="card">
+          <i class="fa-solid fa-shirt"></i>
+
+          <h3 id="produk">0</h3>
+
+          <p>Total Produk</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-cart-shopping"></i>
+
+          <h3 id="pesanan">0</h3>
+
+          <p>Total Pesanan</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-users"></i>
+
+          <h3 id="customer">0</h3>
+
+          <p>Customer</p>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-money-bill"></i>
+
+          <h3 id="pendapatan">Rp0</h3>
+
+          <p>Total Pendapatan</p>
+        </div>
+      </section>
+
+      <!-- Produk Terbaru -->
+
+      <section class="table-area">
+        <div class="table-header">
+          <h2>Produk Terbaru</h2>
+
+          <button type="button" id="btnTambahProduk">+ Tambah Produk</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Gambar</th>
+
+              <th>Nama</th>
+
+              <th>Kategori</th>
+
+              <th>Harga</th>
+
+              <th>Stok</th>
+
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="produkTable"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <!-- Modal Tambah Produk -->
+    <div class="modal-overlay" id="modalTambahProduk">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3>Tambah Produk Baru</h3>
+          <button type="button" class="modal-close" id="btnCloseModal">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <form id="formTambahProduk">
+          <div class="form-group">
+            <label for="inputGambar">Gambar Produk</label>
+            <input type="file" id="inputGambar" accept="image/*" />
+            <img id="previewGambar" class="preview-img" style="display: none" />
+          </div>
+
+          <div class="form-group">
+            <label for="inputNama">Nama Produk</label>
+            <input
+              type="text"
+              id="inputNama"
+              required
+              placeholder="Contoh: Kemeja Flanel"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="inputKategori">Kategori</label>
+            <input
+              type="text"
+              id="inputKategori"
+              required
+              placeholder="Contoh: Kemeja"
+            />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="inputHarga">Harga (Rp)</label>
+              <input
+                type="number"
+                id="inputHarga"
+                required
+                min="0"
+                placeholder="150000"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="inputStok">Stok</label>
+              <input
+                type="number"
+                id="inputStok"
+                required
+                min="0"
+                placeholder="20"
+              />
+            </div>
+          </div>
+
+          <p class="form-error" id="formError"></p>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" id="btnCancelModal">
+              Batal
+            </button>
+            <button type="submit" class="btn-save">Simpan Produk</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="produk-data.js"></script>
+    <script src="dashboard.js"></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan</title>
+    <link rel="stylesheet" href="laporan.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+      <div class="logo">DMEN'STYLE</div>
+
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li>
+          <a href="produk.html">
+            <i class="fa-solid fa-shirt"></i>
+            Produk
+          </a>
+        </li>
+
+        <li>
+          <a href="kategori.html">
+            <i class="fa-solid fa-layer-group"></i>
+            Kategori
+          </a>
+        </li>
+
+        <li>
+          <a href="pesanan.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Pesanan
+          </a>
+        </li>
+
+        <li>
+          <a href="customer.html">
+            <i class="fa-solid fa-users"></i>
+            Customer
+          </a>
+        </li>
+
+        <li>
+          <a href="promo.html">
+            <i class="fa-solid fa-tags"></i>
+            Promo
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="laporan.html">
+            <i class="fa-solid fa-chart-column"></i>
+            Laporan
+          </a>
+        </li>
+
+        <li>
+          <a href="../login.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+      <header>
+        <div style="display: flex; align-items: center; gap: 15px">
+          <button type="button" class="btn-back" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+          </button>
+          <h2>Laporan</h2>
+        </div>
+
+        <button id="btnExport">
+          <i class="fa-solid fa-download"></i>
+          Export
+        </button>
+      </header>
+
+      <!-- Filter Periode -->
+      <div class="toolbar">
+        <div class="filter-group">
+          <label>Dari</label>
+          <input type="date" id="tanggalMulai" />
+        </div>
+
+        <div class="filter-group">
+          <label>Sampai</label>
+          <input type="date" id="tanggalAkhir" />
+        </div>
+
+        <select id="filterPeriode">
+          <option value="7">7 Hari Terakhir</option>
+          <option value="30" selected>30 Hari Terakhir</option>
+          <option value="90">3 Bulan Terakhir</option>
+          <option value="365">1 Tahun Terakhir</option>
+        </select>
+
+        <button id="btnTerapkan">Terapkan</button>
+      </div>
+
+      <!-- Statistik -->
+      <section class="cards">
+        <div class="card">
+          <i class="fa-solid fa-money-bill-wave"></i>
+          <h3 id="statPendapatan">Rp0</h3>
+          <p>Total Pendapatan</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <h3 id="statPesanan">0</h3>
+          <p>Total Pesanan</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-receipt"></i>
+          <h3 id="statRataRata">Rp0</h3>
+          <p>Rata-rata / Pesanan</p>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-shirt"></i>
+          <h3 id="statProdukTerjual">0</h3>
+          <p>Produk Terjual</p>
+        </div>
+      </section>
+
+      <!-- Grafik -->
+      <section class="chart-grid">
+        <div class="chart-box">
+          <div class="chart-header">
+            <h3>Tren Pendapatan</h3>
+          </div>
+          <canvas id="chartPendapatan"></canvas>
+        </div>
+
+        <div class="chart-box">
+          <div class="chart-header">
+            <h3>Penjualan per Kategori</h3>
+          </div>
+          <canvas id="chartKategori"></canvas>
+        </div>
+      </section>
+
+      <!-- Produk Terlaris -->
+      <section class="table-area">
+        <div class="table-header">
+          <h2>Produk Terlaris</h2>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Gambar</th>
+              <th>Nama Produk</th>
+              <th>Kategori</th>
+              <th>Terjual</th>
+              <th>Pendapatan</th>
+            </tr>
+          </thead>
+          <tbody id="tableTerlaris"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <script src="produk-data.js"></script>
+    <script src="laporan.js"></script>
+  </body>
+</html>

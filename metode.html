@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pilih Metode Pembayaran</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Poppins, sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+      }
+
+      .box {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        width: 360px;
+      }
+
+      h2 {
+        margin-top: 0;
+      }
+
+      .total {
+        font-size: 28px;
+        font-weight: bold;
+        color: #111;
+        margin-bottom: 25px;
+      }
+
+      .metode {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 14px 16px;
+        border: 2px solid #eee;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        color: #111;
+        transition: 0.2s;
+        text-align: left;
+      }
+
+      .metode:hover {
+        border-color: #c59d5f;
+        background: #fdf8f0;
+      }
+
+      .metode i {
+        font-size: 22px;
+        width: 28px;
+        text-align: center;
+        color: #c59d5f;
+      }
+
+      .metode span {
+        font-weight: 500;
+      }
+
+      .metode small {
+        display: block;
+        color: #888;
+        font-weight: 400;
+      }
+
+      .kembali {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 13px;
+        color: #888;
+        text-decoration: none;
+      }
+
+      .kembali:hover {
+        color: #111;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <h2>Pilih E-Wallet</h2>
+      <div class="total" id="totalDisplay">Rp0</div>
+
+      <a class="metode" data-metode="gopay" href="#">
+        <i class="fa-solid fa-wallet"></i>
+        <div>
+          <span>GoPay</span>
+          <small>Scan QR via aplikasi Gojek</small>
+        </div>
+      </a>
+
+      <a class="metode" data-metode="ovo" href="#">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <div>
+          <span>OVO</span>
+          <small>Konfirmasi via aplikasi OVO</small>
+        </div>
+      </a>
+
+      <a class="metode" data-metode="dana" href="#">
+        <i class="fa-solid fa-wallet"></i>
+        <div>
+          <span>DANA</span>
+          <small>Scan QR via aplikasi DANA</small>
+        </div>
+      </a>
+
+      <a class="metode" data-metode="shopeepay" href="#">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <div>
+          <span>ShopeePay</span>
+          <small>Scan QR via aplikasi Shopee</small>
+        </div>
+      </a>
+
+      <a class="metode" data-metode="qris" href="#">
+        <i class="fa-solid fa-qrcode"></i>
+        <div>
+          <span>QRIS</span>
+          <small>Bisa pakai e-wallet apa saja</small>
+        </div>
+      </a>
+
+      <a class="kembali" href="checkout.html">&larr; Ganti metode pembayaran</a>
+    </div>
+
+    <script>
+      // ================================
+      // FORMAT RUPIAH
+      // ================================
+      function rupiah(angka) {
+        return "Rp" + angka.toLocaleString("id-ID");
+      }
+
+      // ================================
+      // HITUNG TOTAL PESANAN
+      // Prioritas: total yang disimpan checkout.js > hitung ulang dari cart
+      // ================================
+      function hitungTotal() {
+        const totalTersimpan = localStorage.getItem("ewalletTotal");
+
+        if (totalTersimpan) {
+          return Number(totalTersimpan);
+        }
+
+        const ONGKIR = 20000;
+        const buyNowProduk = JSON.parse(localStorage.getItem("checkoutProduk"));
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const items = buyNowProduk ? [buyNowProduk] : cart;
+
+        if (items.length === 0) return 0;
+
+        let subtotal = 0;
+        items.forEach((item) => {
+          subtotal += item.harga * (item.qty || 1);
+        });
+
+        return subtotal + ONGKIR;
+      }
+
+      const total = hitungTotal();
+      const orderId = "MS-" + Date.now().toString().slice(-8);
+
+      document.getElementById("totalDisplay").textContent = rupiah(total);
+
+      // ================================
+      // ISI LINK TIAP METODE DENGAN TOTAL & ORDER ID
+      // ================================
+      document.querySelectorAll(".metode").forEach((link) => {
+        const metode = link.dataset.metode;
+        link.href =
+          "proses_bayar.html?metode=" +
+          metode +
+          "&total=" +
+          total +
+          "&orderid=" +
+          orderId;
+      });
+    </script>
+  </body>
+</html>

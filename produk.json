@@ -1,0 +1,141 @@
+[
+  {
+    "id": 1,
+    "nama": "Kaos Basic Putih",
+    "kategori": "Kaos",
+    "harga": 120000,
+    "hargaPromo": 20000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Putih"],
+    "ukuran": ["S", "M", "L", "XL"],
+    "gambar": "images/kaos-basic-putih.jpg",
+    "deskripsi": "Kaos Basic Putih berbahan Cotton Combed 30s premium yang lembut, adem, dan nyaman digunakan sepanjang hari. Cocok dipadukan dengan jeans maupun celana chino untuk tampilan kasual modern."
+  },
+
+  {
+    "id": 2,
+    "nama": "Kemeja Oxford",
+    "kategori": "Kemeja",
+    "harga": 210000,
+    "hargaPromo": 10000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Biru", "Putih"],
+    "ukuran": ["M", "L", "XL"],
+    "gambar": "images/kemeja-oxford.jpg",
+    "deskripsi": "Kemeja Oxford Premium dengan bahan katun berkualitas tinggi yang nyaman dipakai untuk kegiatan formal maupun santai. Memiliki desain slim fit yang membuat penampilan lebih elegan dan rapi."
+  },
+
+  {
+    "id": 3,
+    "nama": "Hoodie Oversize",
+    "kategori": "Hoodie",
+    "harga": 285000,
+    "hargaPromo": 20000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Hitam", "Abu-abu"],
+    "ukuran": ["M", "L", "XL", "XXL"],
+    "gambar": "images/hoodie-oversize.jpg",
+    "deskripsi": "Hoodie Oversize berbahan fleece premium yang tebal namun tetap nyaman. Desain kekinian dengan model oversized cocok untuk gaya streetwear dan aktivitas sehari-hari."
+  },
+
+  {
+    "id": 4,
+    "nama": "Jaket Denim",
+    "kategori": "Jaket",
+    "harga": 350000,
+    "hargaPromo": 10000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Biru"],
+    "ukuran": ["M", "L", "XL"],
+    "gambar": "images/jaket-denim.jpg",
+    "deskripsi": "Jaket Denim berbahan denim premium yang kuat dan tahan lama. Memiliki desain klasik dengan sentuhan modern sehingga cocok digunakan untuk berbagai kesempatan."
+  },
+
+  {
+    "id": 5,
+    "nama": "Celana Chino",
+    "kategori": "Celana",
+    "harga": 230000,
+    "hargaPromo": 10000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Coklat", "Hitam"],
+    "ukuran": ["S", "M", "L", "XL"],
+    "gambar": "images/celana-chino.jpg",
+    "deskripsi": "Celana Chino berbahan twill stretch yang nyaman dipakai sepanjang hari. Cocok dipadukan dengan kaos maupun kemeja untuk gaya kasual hingga semi formal."
+  },
+
+  {
+    "id": 6,
+    "nama": "Sepatu Casual",
+    "kategori": "Sepatu",
+    "harga": 2135000,
+    "hargaPromo": 90000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Hitam", "Coklat"],
+    "ukuran": ["39", "40", "41", "42", "43"],
+    "gambar": "images/sepatu-casual.jpg",
+    "deskripsi": "Bagian atas (upper) menggunakan bahan sintetis atau PVC, sedangkan sol luarnya terbuat dari PVC atau TPR yang tahan lama dan memberikan cengkeraman yang baik."
+  },
+
+  {
+    "id": 7,
+    "nama": "Kaos Hitam Premium",
+    "kategori": "Kaos",
+    "harga": 135000,
+    "hargaPromo": 20000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Hitam"],
+    "ukuran": ["S", "M", "L", "XL"],
+    "gambar": "images/kaos-hitam-premium.jpg",
+    "deskripsi": "Kaos Hitam Premium dengan bahan Cotton Combed berkualitas tinggi, nyaman, tidak mudah melar, dan cocok digunakan untuk aktivitas harian maupun outfit streetwear."
+  },
+
+  {
+    "id": 8,
+    "nama": "SweatShort",
+    "kategori": "Celana",
+    "harga": 75000,
+    "hargaPromo": 5000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Abu-abu", "Hitam"],
+    "ukuran": ["M", "L", "XL"],
+    "gambar": "images/sweatshort.jpg",
+    "deskripsi": "Bahan fleece atau katun sweat fabric yang lembut, elastis, dan menyerap keringat untuk kenyamanan maksimal sepanjang hari."
+  },
+
+  {
+    "id": 9,
+    "nama": "Core Worker Jacket Black",
+    "kategori": "Jaket",
+    "harga": 599000,
+    "hargaPromo": 10000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Hitam"],
+    "ukuran": ["M", "L", "XL"],
+    "gambar": "images/core-worker-jacket-black.jpg",
+    "deskripsi": "Bahan fleece atau katun sweat fabric yang lembut, elastis, dan menyerap keringat untuk kenyamanan maksimal sepanjang hari."
+  },
+
+  {
+    "id": 10,
+    "nama": "Kaos Singlet",
+    "kategori": "Kaos",
+    "harga": 99000,
+    "hargaPromo": 10000,
+    "diskon": 25,
+    "promo": true,
+    "warna": ["Putih", "Hitam"],
+    "ukuran": ["S", "M", "L"],
+    "gambar": "images/kaos-singlet.jpg",
+    "deskripsi": "Umumnya menggunakan bahan katun atau PE yang adem, berkualitas baik, dan nyaman untuk penggunaan sehari-hari maupun olahraga seperti gym dan lari."
+  }
+]

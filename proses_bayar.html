@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memproses Pembayaran</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Poppins, sans-serif;
+        background: #f5f5f5;
+        margin: 0;
+      }
+
+      .box {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        width: 360px;
+      }
+
+      h2 {
+        margin: 0 0 8px;
+        font-size: 19px;
+      }
+
+      p {
+        color: #888;
+        font-size: 13.5px;
+        margin: 0;
+      }
+
+      .spinner {
+        width: 46px;
+        height: 46px;
+        border: 4px solid #eee;
+        border-top-color: #c59d5f;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        animation: spin 0.8s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      #successBox {
+        display: none;
+      }
+
+      #successBox i {
+        font-size: 56px;
+        color: #2a9d8f;
+        margin-bottom: 14px;
+      }
+
+      #successBox p {
+        margin-bottom: 4px;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .total {
+        font-size: 24px;
+        font-weight: bold;
+        color: #111;
+        margin: 14px 0 20px;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 6px;
+      }
+
+      .actions a {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 13.5px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .btn-outline {
+        border: 1.5px solid #111;
+        color: #111;
+      }
+
+      .btn-outline:hover {
+        background: #111;
+        color: #fff;
+      }
+
+      .btn-solid {
+        background: #c59d5f;
+        color: #fff;
+      }
+
+      .btn-solid:hover {
+        background: #111;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- SEDANG DIPROSES -->
+    <div class="box" id="processingBox">
+      <div class="spinner"></div>
+      <h2 id="metodeLabel">Memproses pembayaran...</h2>
+      <p>Mohon tunggu, jangan tutup halaman ini.</p>
+    </div>
+
+    <!-- SUKSES -->
+    <div class="box" id="successBox">
+      <i class="fa-solid fa-circle-check"></i>
+      <h2>Pembayaran Berhasil!</h2>
+
+      <p>Metode: <strong id="metodeNama">-</strong></p>
+      <p>Nomor Pesanan: <strong id="orderIdText">-</strong></p>
+
+      <div class="total" id="totalText">Rp0</div>
+
+      <div class="actions">
+        <a href="produk.html" class="btn-outline">Belanja Lagi</a>
+        <a href="index.html" class="btn-solid">Beranda</a>
+      </div>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+
+      const metodeKey = params.get("metode") || "ewallet";
+      const total = Number(params.get("total")) || 0;
+      const orderId =
+        params.get("orderid") || "MS-" + Date.now().toString().slice(-8);
+
+      const namaMetode =
+        {
+          gopay: "GoPay",
+          ovo: "OVO",
+          dana: "DANA",
+          shopeepay: "ShopeePay",
+          qris: "QRIS",
+        }[metodeKey] || metodeKey;
+
+      document.getElementById("metodeLabel").textContent =
+        "Memproses via " + namaMetode + "...";
+
+      function rupiah(angka) {
+        return "Rp" + angka.toLocaleString("id-ID");
+      }
+
+      // simulasi proses pembayaran ke penyedia e-wallet
+      setTimeout(() => {
+        document.getElementById("processingBox").style.display = "none";
+        document.getElementById("successBox").style.display = "block";
+
+        document.getElementById("metodeNama").textContent = namaMetode;
+        document.getElementById("orderIdText").textContent = orderId;
+        document.getElementById("totalText").textContent = rupiah(total);
+
+        // bersihkan data belanja setelah "berhasil dibayar"
+        localStorage.removeItem("cart");
+        localStorage.removeItem("checkoutProduk");
+        localStorage.removeItem("ewalletTotal");
+      }, 2000);
+    </script>
+  </body>
+</html>

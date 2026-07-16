@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>DMEN'STYLE | Fashion Store</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- ================= GOOGLE ANALYTICS (DUMMY) ================= -->
+    <!-- Ganti G-DUMMY123456 dengan Measurement ID GA4 asli saat go-live -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DUMMY123456"
+    ></script>
+    <script src="js/analytics.js"></script>
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+      <div class="logo">DMEN'STYLE</div>
+
+      <nav>
+        <a href="#">Home</a>
+
+        <a href="produk.html">Produk</a>
+
+        <a href="kategori.html">Kategori</a>
+
+        <a href="promo.html">Promo</a>
+
+        <a href="tentang.html">Tentang</a>
+      </nav>
+
+      <div class="nav-icon">
+        <a href="login.html" class="login-btn">Login</a>
+      </div>
+    </header>
+
+    <!-- ================= BANNER ================= -->
+
+    <section class="banner-slider">
+      <div class="slides">
+        <div class="slide active">
+          <img src="images/banner1.jpg" alt="" />
+
+          <div class="banner-info">
+            <span>DISKON</span>
+            <h2>SALE 50%</h2>
+            <a href="produk.html">Belanja Sekarang</a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="images/banner2.jpg" alt="" />
+
+          <div class="banner-info">
+            <span>NEW ARRIVAL</span>
+            <h2>Fashion Premium</h2>
+            <a href="produk.html">Lihat Produk</a>
+          </div>
+        </div>
+      </div>
+
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </section>
+
+    <!-- ================= CATEGORY ================= -->
+
+    <section class="category">
+      <h2>Kategori</h2>
+
+      <div class="category-grid">
+        <div class="card">
+          <i class="fa-solid fa-shirt"></i>
+          <h3>Kaos</h3>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-user-tie"></i>
+          <h3>Kemeja</h3>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-person"></i>
+          <h3>Hoodie</h3>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-vest"></i>
+          <h3>Jaket</h3>
+        </div>
+
+        <div class="card">
+          <svg
+            viewBox="0 0 64 64"
+            width="50"
+            height="50"
+            style="fill: #c59d5f; margin-bottom: 20px"
+          >
+            <rect x="8" y="6" width="48" height="10" rx="2" />
+            <rect x="8" y="16" width="48" height="14" />
+            <rect x="8" y="30" width="20" height="30" rx="2" />
+            <rect x="36" y="30" width="20" height="30" rx="2" />
+          </svg>
+          <h3>Celana</h3>
+        </div>
+
+        <div class="card">
+          <i class="fa-solid fa-shoe-prints"></i>
+          <h3>Sepatu</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCT ================= -->
+
+    <section class="product">
+      <h2>Produk Terbaru</h2>
+
+      <div class="product-grid" id="product-grid"></div>
+    </section>
+    <!-- ================= PROMO ================= -->
+
+    <section class="promo">
+      <h2>Diskon Hingga 50%</h2>
+
+      <p>Dapatkan penawaran terbaik hanya minggu ini.</p>
+
+      <a href="#" class="btn">Belanja Sekarang</a>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>DMEN'STYLE STORE</h3>
+          <p>
+            Toko fashion pria modern yang menyediakan kaos, hoodie, jaket,
+            kemeja, celana, dan sepatu dengan kualitas premium.
+          </p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Navigasi</h3>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="produk.html">Produk</a></li>
+            <li><a href="kategori.html">Kategori</a></li>
+            <li><a href="keranjang.html">Keranjang</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-box">
+          <h3>Layanan</h3>
+          <ul>
+            <li><a href="#">Cara Belanja</a></li>
+            <li><a href="#">Pengiriman</a></li>
+            <li><a href="#">Pengembalian</a></li>
+            <li><a href="#">Syarat & Ketentuan</a></li>
+            <li><a href="#">Kebijakan Privasi</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-box">
+          <h3>Hubungi Kami</h3>
+
+          <p>📍 Indonesia</p>
+          <p>📞 +62 812-3456-7890</p>
+          <p>✉️ info@mensstyle.com</p>
+
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+            <a href="#"><i class="fab fa-instagram"></i></a>
+
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="payment">
+        <h4>Metode Pembayaran</h4>
+
+        <div class="payment-icons">
+          <span>💳 Visa</span>
+
+          <span>💳 Mastercard</span>
+
+          <span>🏦 BCA</span>
+
+          <span>🏦 BRI</span>
+
+          <span>🏦 Mandiri</span>
+
+          <span>📱 QRIS</span>
+        </div>
+      </div>
+
+      <div class="copyright">© 2026 DMEN'STYLE STORE. All Rights Reserved.</div>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kelola Kategori</title>
+
+    <link rel="stylesheet" href="kategori.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+      <div class="logo">DMEN'STYLE</div>
+
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li>
+          <a href="produk.html">
+            <i class="fa-solid fa-shirt"></i>
+            Produk
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="kategori.html">
+            <i class="fa-solid fa-layer-group"></i>
+            Kategori
+          </a>
+        </li>
+
+        <li>
+          <a href="pesanan.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Pesanan
+          </a>
+        </li>
+
+        <li>
+          <a href="customer.html">
+            <i class="fa-solid fa-users"></i>
+            Customer
+          </a>
+        </li>
+
+        <li>
+          <a href="promo.html">
+            <i class="fa-solid fa-tags"></i>
+            Promo
+          </a>
+        </li>
+
+        <li>
+          <a href="laporan.html">
+            <i class="fa-solid fa-chart-column"></i>
+            Laporan
+          </a>
+        </li>
+
+        <li>
+          <a href="../login.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+      <header>
+        <div style="display: flex; align-items: center; gap: 15px">
+          <button type="button" class="btn-back" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+          </button>
+          <h2>Kelola Kategori</h2>
+        </div>
+
+        <button id="btnTambah">
+          <i class="fa-solid fa-plus"></i>
+
+          Tambah Kategori
+        </button>
+      </header>
+
+      <!-- Toolbar -->
+
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Cari kategori..." />
+      </div>
+
+      <!-- ================= TABLE ================= -->
+
+      <div class="table-area">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+
+              <th>Ikon</th>
+
+              <th>Nama Kategori</th>
+
+              <th>Jumlah Produk</th>
+
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="tableKategori"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================= MODAL ================= -->
+
+    <div class="modal" id="modalKategori">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="judulModal">Tambah Kategori</h2>
+
+          <span id="closeModal"> &times; </span>
+        </div>
+
+        <form id="formKategori">
+          <input type="hidden" id="idKategori" />
+
+          <div class="form-group">
+            <label>Nama Kategori</label>
+
+            <input
+              type="text"
+              id="nama"
+              placeholder="Contoh: Kaos, Celana, Sepatu"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Ikon (kelas Font Awesome)</label>
+
+            <input
+              type="text"
+              id="icon"
+              placeholder="Contoh: fa-solid fa-shirt"
+              required
+            />
+
+            <small style="color: #888; display: block; margin-top: 6px">
+              Cari nama kelas ikon di
+              <a href="https://fontawesome.com/search?m=free" target="_blank"
+                >fontawesome.com</a
+              >, pastikan pilih yang gratis (Free).
+            </small>
+          </div>
+
+          <div class="form-group">
+            <label>Preview</label>
+            <div id="iconPreview" style="font-size: 32px; color: #2563eb">
+              <i class="fa-solid fa-shirt"></i>
+            </div>
+          </div>
+
+          <button type="submit">Simpan Kategori</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="kategori.js"></script>
+  </body>
+</html>

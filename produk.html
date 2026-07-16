@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Kelola Produk</title>
+
+    <link rel="stylesheet" href="produk.css" />
+
+    <style>
+      .preview-gambar {
+        border: 1.5px dashed #c9c9c9;
+        border-radius: 8px;
+        padding: 14px;
+        text-align: center;
+        cursor: pointer;
+        background: #fafafa;
+        transition: 0.15s;
+      }
+      .preview-gambar:hover {
+        border-color: #999;
+      }
+      .preview-gambar img {
+        max-width: 100%;
+        max-height: 140px;
+        border-radius: 6px;
+        display: block;
+        margin: 0 auto 6px;
+        object-fit: cover;
+      }
+      .preview-gambar span {
+        font-size: 13px;
+        color: #888;
+      }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+      <div class="logo">DMEN'STYLE</div>
+
+      <ul>
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-chart-line"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="produk.html">
+            <i class="fa-solid fa-shirt"></i>
+            Produk
+          </a>
+        </li>
+
+        <li>
+          <a href="kategori.html">
+            <i class="fa-solid fa-layer-group"></i>
+            Kategori
+          </a>
+        </li>
+
+        <li>
+          <a href="pesanan.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Pesanan
+          </a>
+        </li>
+
+        <li>
+          <a href="customer.html">
+            <i class="fa-solid fa-users"></i>
+            Customer
+          </a>
+        </li>
+
+        <li>
+          <a href="promo.html">
+            <i class="fa-solid fa-tags"></i>
+            Promo
+          </a>
+        </li>
+
+        <li>
+          <a href="laporan.html">
+            <i class="fa-solid fa-chart-column"></i>
+            Laporan
+          </a>
+        </li>
+
+        <li>
+          <a href="../login.html">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+      <header>
+        <div style="display: flex; align-items: center; gap: 15px">
+          <button type="button" class="btn-back" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i> Kembali
+          </button>
+          <h2>Kelola Produk</h2>
+        </div>
+
+        <button id="btnTambah">
+          <i class="fa-solid fa-plus"></i>
+
+          Tambah Produk
+        </button>
+      </header>
+
+      <!-- Toolbar -->
+
+      <div class="toolbar">
+        <input type="text" id="search" placeholder="Cari produk..." />
+
+        <select id="filterKategori">
+          <option value="Semua">Semua Kategori</option>
+
+          <option>Kaos</option>
+
+          <option>Kemeja</option>
+
+          <option>Hoodie</option>
+
+          <option>Jaket</option>
+
+          <option>Celana</option>
+        </select>
+      </div>
+
+      <!-- ================= TABLE ================= -->
+
+      <div class="table-area">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+
+              <th>Gambar</th>
+
+              <th>Nama Produk</th>
+
+              <th>Kategori</th>
+
+              <th>Harga</th>
+
+              <th>Stok</th>
+
+              <th>Aksi</th>
+            </tr>
+          </thead>
+
+          <tbody id="tableProduk"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ================= MODAL ================= -->
+
+    <div class="modal" id="modalProduk">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="judulModal">Tambah Produk</h2>
+
+          <span id="closeModal"> &times; </span>
+        </div>
+
+        <form id="formProduk">
+          <input type="hidden" id="idProduk" />
+
+          <div class="form-group">
+            <label>Nama Produk</label>
+
+            <input type="text" id="nama" required />
+          </div>
+
+          <div class="form-group">
+            <label>Kategori</label>
+
+            <select id="kategori">
+              <option>Kaos</option>
+
+              <option>Kemeja</option>
+
+              <option>Hoodie</option>
+
+              <option>Jaket</option>
+
+              <option>Celana</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Harga</label>
+
+            <input type="number" id="harga" required />
+          </div>
+
+          <div class="form-group">
+            <label>Stok</label>
+
+            <input type="number" id="stok" required />
+          </div>
+
+          <div class="form-group">
+            <label>Gambar Produk</label>
+
+            <div
+              id="previewGambar"
+              class="preview-gambar"
+              onclick="document.getElementById('gambarFile').click()"
+            >
+              <span id="previewGambarText">Klik untuk pilih gambar</span>
+            </div>
+
+            <input
+              type="file"
+              id="gambarFile"
+              accept="image/*"
+              style="display: none"
+            />
+
+            <input type="hidden" id="gambar" />
+          </div>
+
+          <button type="submit">Simpan Produk</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="produk-data.js"></script>
+    <script src="produk.js"></script>
+  </body>
+</html>

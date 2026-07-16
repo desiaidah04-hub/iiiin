@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Keranjang Belanja | DMEN'STYLE</title>
+
+    <link rel="stylesheet" href="css/keranjang.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">DMEN'STYLE</div>
+
+      <nav>
+        <a href="index.html">Home</a>
+
+        <a href="produk.html">Produk</a>
+
+        <a href="keranjang.html" class="active"> Keranjang </a>
+      </nav>
+    </header>
+
+    <section class="cart-page">
+      <div class="cart-header">
+        <h1>Keranjang Belanja</h1>
+
+        <p>Periksa kembali produk yang akan dibeli.</p>
+      </div>
+
+      <div class="cart-container">
+        <!-- PRODUK -->
+
+        <div class="cart-left">
+          <div id="cartEmpty" class="cart-empty">
+            <img src="images/empty-cart.png" />
+
+            <h2>Keranjang Masih Kosong</h2>
+
+            <p>Silakan pilih produk terlebih dahulu.</p>
+
+            <a href="produk.html"> Belanja Sekarang </a>
+          </div>
+
+          <div id="cartList">
+            <!-- javascript -->
+          </div>
+        </div>
+
+        <!-- RINGKASAN -->
+
+        <div class="cart-right">
+          <div class="summary-card">
+            <h2>Ringkasan Belanja</h2>
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+
+              <span id="subtotal">Rp0</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Diskon</span>
+
+              <span id="diskon">Rp0</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Ongkir</span>
+
+              <span>Rp20.000</span>
+            </div>
+
+            <hr />
+
+            <div class="summary-total">
+              <span>Total</span>
+
+              <span id="grandTotal">Rp0</span>
+            </div>
+
+            <button id="checkoutBtn">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 DMEN'STYLE STORE</p>
+    </footer>
+
+    <script src="js/keranjang.js"></script>
+  </body>
+</html>

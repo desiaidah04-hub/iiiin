@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Checkout | DMEN'STYLE</title>
+
+    <link rel="stylesheet" href="css/checkout.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="logo">DMEN'STYLE</div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="produk.html">Produk</a>
+        <a href="keranjang.html">Keranjang</a>
+        <a href="checkout.html" class="active">Checkout</a>
+      </nav>
+    </header>
+
+    <section class="checkout-page">
+      <div class="checkout-header">
+        <h1>Checkout</h1>
+        <p>Lengkapi data pengiriman dan pilih metode pembayaran.</p>
+      </div>
+
+      <!-- KOSONG -->
+      <div id="checkoutEmpty" class="checkout-empty">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <h2>Belum ada produk untuk di-checkout</h2>
+        <p>
+          Silakan pilih produk dari keranjang atau halaman produk terlebih
+          dahulu.
+        </p>
+        <a href="produk.html">Belanja Sekarang</a>
+      </div>
+
+      <form id="checkoutForm" class="checkout-container">
+        <!-- KIRI : FORM -->
+        <div class="checkout-left">
+          <div class="form-card">
+            <h2><i class="fa-solid fa-truck"></i> Informasi Pengiriman</h2>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input
+                  type="text"
+                  name="nama"
+                  placeholder="Nama penerima"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email@contoh.com"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label>No. Telepon</label>
+                <input
+                  type="tel"
+                  name="telepon"
+                  placeholder="08xxxxxxxxxx"
+                  pattern="[0-9]{9,15}"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label>Kota</label>
+                <input
+                  type="text"
+                  name="kota"
+                  placeholder="Kota tujuan"
+                  required
+                />
+              </div>
+
+              <div class="form-group full">
+                <label>Alamat Lengkap</label>
+                <textarea
+                  name="alamat"
+                  rows="3"
+                  placeholder="Nama jalan, nomor rumah, RT/RW, kecamatan"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Kode Pos</label>
+                <input
+                  type="text"
+                  name="kodepos"
+                  placeholder="Kode Pos"
+                  required
+                />
+              </div>
+
+              <div class="form-group full">
+                <label>Catatan (opsional)</label>
+                <textarea
+                  name="catatan"
+                  rows="2"
+                  placeholder="Contoh: titip di satpam, jangan dibanting, dll."
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <h2><i class="fa-solid fa-wallet"></i> Metode Pembayaran</h2>
+
+            <div class="payment-methods">
+              <label class="payment-option">
+                <input
+                  type="radio"
+                  name="pembayaran"
+                  value="Transfer Bank"
+                  checked
+                />
+                <div class="payment-box">
+                  <i class="fa-solid fa-building-columns"></i>
+                  <div>
+                    <h4>Transfer Bank</h4>
+                    <p>BCA, BRI, Mandiri</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="pembayaran" value="QRIS" />
+                <div class="payment-box">
+                  <i class="fa-solid fa-qrcode"></i>
+                  <div>
+                    <h4>QRIS</h4>
+                    <p>Scan & bayar instan</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input
+                  type="radio"
+                  name="pembayaran"
+                  value="Kartu Kredit/Debit"
+                />
+                <div class="payment-box">
+                  <i class="fa-solid fa-credit-card"></i>
+                  <div>
+                    <h4>Kartu Kredit/Debit</h4>
+                    <p>Visa, Mastercard</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="pembayaran" value="COD" />
+                <div class="payment-box">
+                  <i class="fa-solid fa-money-bill-wave"></i>
+                  <div>
+                    <h4>Bayar di Tempat</h4>
+                    <p>Cash on Delivery</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="payment-option">
+                <input type="radio" name="pembayaran" value="E-Wallet" />
+                <div class="payment-box">
+                  <i class="fa-solid fa-wallet"></i>
+                  <div>
+                    <h4>E-Wallet</h4>
+                    <p>GoPay, OVO, DANA, ShopeePay</p>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- KANAN : RINGKASAN -->
+        <div class="checkout-right">
+          <div class="summary-card">
+            <h2>Ringkasan Pesanan</h2>
+
+            <div id="orderItems" class="order-items"></div>
+
+            <hr />
+
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="subtotal">Rp0</span>
+            </div>
+
+            <div
+              class="summary-row diskon-row"
+              id="diskonRow"
+              style="display: none"
+            >
+              <span>Diskon <span class="diskon-badge">-25%</span></span>
+              <span id="diskon" class="diskon-value">-Rp0</span>
+            </div>
+
+            <div class="summary-row">
+              <span>Ongkos Kirim</span>
+              <span id="ongkir">Rp0</span>
+            </div>
+
+            <hr />
+
+            <div class="summary-total">
+              <span>Total Bayar</span>
+              <span id="grandTotal">Rp0</span>
+            </div>
+
+            <button type="submit" id="payBtn">
+              <i class="fa-solid fa-lock"></i> Bayar Sekarang
+            </button>
+
+            <p class="secure-note">
+              <i class="fa-solid fa-shield-halved"></i> Transaksi ini hanya
+              simulasi, tidak ada pembayaran nyata.
+            </p>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- LANGKAH PEMBAYARAN (QRIS / VA / REKENING) -->
+    <div id="paymentStepModal" class="overlay">
+      <div class="overlay-box step-box">
+        <button type="button" class="step-close" id="stepClose">&times;</button>
+        <div id="paymentStepContent"></div>
+      </div>
+    </div>
+
+    <!-- OVERLAY PROSES PEMBAYARAN -->
+    <div id="paymentOverlay" class="overlay">
+      <div class="overlay-box">
+        <div class="spinner"></div>
+        <h3>Memproses pembayaran...</h3>
+        <p>Mohon tunggu sebentar, jangan tutup halaman ini.</p>
+      </div>
+    </div>
+
+    <!-- MODAL SUKSES -->
+    <div id="successModal" class="overlay">
+      <div class="overlay-box success-box">
+        <i class="fa-solid fa-circle-check"></i>
+        <h3>Pembayaran Berhasil!</h3>
+        <p>Nomor Pesanan: <strong id="orderId">-</strong></p>
+        <p>Total Dibayar: <strong id="orderTotal">Rp0</strong></p>
+        <p class="metode-terpilih">Metode: <span id="orderMetode">-</span></p>
+        <p id="orderDetail" class="order-detail"></p>
+
+        <div class="success-actions">
+          <a href="produk.html" class="btn-outline">Belanja Lagi</a>
+          <a href="index.html" class="btn-solid">Kembali ke Beranda</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 DMEN'STYLE STORE</p>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+  </body>
+</html>
